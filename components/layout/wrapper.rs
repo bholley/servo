@@ -514,13 +514,13 @@ impl<'le> ::selectors::Element for ServoLayoutElement<'le> {
     }
 
     #[inline]
-    fn get_local_name(&self) -> &Atom {
-        self.element.local_name()
+    fn get_local_name(&self) -> Atom {
+        self.element.local_name().clone()
     }
 
     #[inline]
-    fn get_namespace(&self) -> &Namespace {
-        self.element.namespace()
+    fn get_namespace(&self) -> Namespace {
+        self.element.namespace().clone()
     }
 
     fn is_link(&self) -> bool {

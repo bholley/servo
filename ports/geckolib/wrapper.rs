@@ -403,26 +403,20 @@ impl<'le> ::selectors::Element for GeckoElement<'le> {
         panic!("Not implemented");
     }
 
-    fn get_local_name(&self) -> &Atom {
-        panic!("Requires signature modification - only implemented in stylo branch");
-        /*
+    fn get_local_name(&self) -> Atom {
         unsafe {
             let mut length: u32 = 0;
             let p = Gecko_LocalName(self.element, &mut length);
             Atom::from(&*String::from_utf16(slice::from_raw_parts(p, length as usize)).unwrap())
         }
-        */
     }
 
-    fn get_namespace(&self) -> &Namespace {
-        panic!("Requires signature modification - only implemented in stylo branch");
-        /*
+    fn get_namespace(&self) -> Namespace {
         unsafe {
             let mut length: u32 = 0;
             let p = Gecko_Namespace(self.element, &mut length);
             Namespace(Atom::from(&*String::from_utf16(slice::from_raw_parts(p, length as usize)).unwrap()))
         }
-        */
     }
 
     fn is_link(&self) -> bool {
