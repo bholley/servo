@@ -11,7 +11,7 @@ use euclid::Size2D;
 use gecko_bindings::bindings::{RawGeckoDocument, RawGeckoElement, RawGeckoNode};
 use gecko_bindings::bindings::{RawServoStyleSet, RawServoStyleSheet, ServoComputedValues};
 use gecko_bindings::bindings::{ServoDeclarationBlock, ServoNodeData, ThreadSafePrincipalHolder};
-use gecko_bindings::bindings::{ThreadSafeURIHolder, nsIAtom};
+use gecko_bindings::bindings::ThreadSafeURIHolder;
 use gecko_bindings::ptr::{GeckoArcPrincipal, GeckoArcURI};
 use gecko_bindings::structs::{SheetParsingMode, nsIAtom};
 use properties::GeckoComputedValues;
