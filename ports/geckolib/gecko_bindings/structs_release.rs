@@ -188,8 +188,6 @@ pub const NS_ERROR_MODULE_BASE_OFFSET: ::std::os::raw::c_uint = 69;
 pub const MOZ_STRING_WITH_OBSOLETE_API: ::std::os::raw::c_uint = 1;
 pub const NSID_LENGTH: ::std::os::raw::c_uint = 39;
 pub const NS_NUMBER_OF_FLAGS_IN_REFCNT: ::std::os::raw::c_uint = 2;
-pub const _STL_PAIR_H: ::std::os::raw::c_uint = 1;
-pub const _GLIBCXX_UTILITY: ::std::os::raw::c_uint = 1;
 pub const TWIPS_PER_POINT_INT: ::std::os::raw::c_uint = 20;
 pub const POINTS_PER_INCH_INT: ::std::os::raw::c_uint = 72;
 pub const NS_FONT_VARIANT_NORMAL: ::std::os::raw::c_uint = 0;
@@ -2903,6 +2901,16 @@ pub struct pair<_T1, _T2> {
     pub first: _T1,
     pub second: _T2,
 }
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct __make_pair_return_impl<_Tp> {
+    pub _phantom0: ::std::marker::PhantomData<_Tp>,
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct __make_pair_return<_Tp> {
+    pub _phantom0: ::std::marker::PhantomData<_Tp>,
+}
 pub type Float = f32;
 #[repr(i8)]
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
@@ -3164,16 +3172,6 @@ pub enum SideBits {
     eSideBitsLeftRight = 10,
     eSideBitsAll = 15,
 }
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct tuple_size<_Tp> {
-    pub _phantom0: ::std::marker::PhantomData<_Tp>,
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct tuple_element<_Tp> {
-    pub _phantom0: ::std::marker::PhantomData<_Tp>,
-}
 pub type nscoord = i32;
 #[repr(C)]
 pub struct nsIntPoint {
@@ -3394,7 +3392,7 @@ fn bindgen_test_layout_nsFont() {
 }
 #[repr(i8)]
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
-pub enum StyleBoxSizing { Content = 0, Padding = 1, Border = 2, }
+pub enum StyleBoxSizing { Content = 0, Border = 1, }
 #[repr(i32)]
 #[derive(Debug, Copy, Clone, Eq, PartialEq, Hash)]
 pub enum PlaybackDirection { _BindgenOpaqueEnum = 0, }
@@ -5883,8 +5881,8 @@ pub struct nsStyleDisplay {
     pub mContain: u8,
     pub mAppearance: u8,
     pub mPosition: u8,
-    pub mFloats: u8,
-    pub mOriginalFloats: u8,
+    pub mFloat: u8,
+    pub mOriginalFloat: u8,
     pub mBreakType: u8,
     pub mBreakInside: u8,
     pub mBreakBefore: bool,

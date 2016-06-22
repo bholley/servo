@@ -88,7 +88,7 @@
 
 ${helpers.single_keyword("position", "static absolute relative fixed", need_clone=True, extra_gecko_values="sticky")}
 
-<%helpers:single_keyword_computed name="float" values="none left right" need_clone="True" gecko_ffi_name="mFloats">
+<%helpers:single_keyword_computed name="float" values="none left right" need_clone="True">
     impl ToComputedValue for SpecifiedValue {
         type ComputedValue = computed_value::T;
 

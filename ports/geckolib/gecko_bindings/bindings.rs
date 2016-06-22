@@ -207,9 +207,6 @@ extern "C" {
     pub fn Gecko_CreateGradient(shape: u8, size: u8, repeating: bool,
                                 legacy_syntax: bool, stops: u32)
      -> *mut nsStyleGradient;
-    pub fn Gecko_SetGradientStop(gradient: *mut nsStyleGradient, index: u32,
-                                 location: *const nsStyleCoord,
-                                 color: nscolor, is_interpolation_hint: bool);
     pub fn Gecko_AddRefPrincipalArbitraryThread(aPtr:
                                                     *mut ThreadSafePrincipalHolder);
     pub fn Gecko_ReleasePrincipalArbitraryThread(aPtr:
