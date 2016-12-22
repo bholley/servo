@@ -13,4 +13,5 @@ doctest = false
 msg = {path = "../../../components/msg"}
 plugins = {path = "../../../components/plugins"}
 script = {path = "../../../components/script"}
+style = {path = "../../../components/style"}
 servo_url = {path = "../../../components/url"}

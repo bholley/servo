@@ -10,8 +10,9 @@ use script::dom::htmlelement::HTMLElement;
 use script::dom::htmlspanelement::HTMLSpanElement;
 use script::dom::node::Node;
 use script::dom::text::Text;
-use script::layout_wrapper::ServoThreadSafeLayoutNode;
+use script::layout_wrapper::{ServoLayoutNode, ServoLayoutElement, ServoThreadSafeLayoutNode};
 use std::mem::size_of;
+use style::dom::{SendElement, SendNode};
 
 // Macro so that we can stringify type names
 // I'd really prefer the tests themselves to be run at plugin time,
@@ -47,3 +48,7 @@ sizeof_checker!(size_span, HTMLSpanElement, 336);
 sizeof_checker!(size_text, Text, 184);
 sizeof_checker!(size_characterdata, CharacterData, 184);
 sizeof_checker!(size_servothreadsafelayoutnode, ServoThreadSafeLayoutNode, 16);
+
+// We use these types in the parallel traversal. They should stay pointer-sized.
+sizeof_checker!(size_sendnode, SendNode<ServoLayoutNode>, 8);
+sizeof_checker!(size_sendelement, SendElement<ServoLayoutElement>, 8);
